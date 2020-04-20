@@ -20,8 +20,8 @@ const App = () => {
         <Route path='/'>
           <MovieList />
         </Route>
-        <Route path='/movies/:id' render={props => {const { id } = props.match.params}}>
-          <Movie />
+        <Route path='/movies/:id' render={props => {const { id } = props.match.params; return <Movie />}}>
+          {/* <Movie /> */}
         </Route>
       </div>
     </div>
