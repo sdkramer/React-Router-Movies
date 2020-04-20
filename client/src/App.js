@@ -20,7 +20,7 @@ const App = () => {
         <Route path='/'>
           <MovieList />
         </Route>
-        <Route path='/movies/:id'>
+        <Route path='/movies/:id' render={props => {const { id } = props.match.params}}>
           <Movie />
         </Route>
       </div>
