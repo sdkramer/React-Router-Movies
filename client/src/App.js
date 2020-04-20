@@ -1,18 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { Route, Switch, Link } from "react-router-dom";
 
-import SavedList from './Movies/SavedList';
+import SavedList from "./Movies/SavedList";
 
 const App = () => {
   const [savedList, setSavedList] = useState([]);
 
-  const addToSavedList = movie => {
+  const addToSavedList = (movie) => {
     setSavedList([...savedList, movie]);
   };
 
   return (
     <div>
       <SavedList list={savedList} />
-      <div>Replace this Div with your Routes</div>
+
+      <div>
+        <Route path='/'>
+          <MovieList />
+        </Route>
+        <Route path='/movies/:id'>
+          <Movie />
+        </Route>
+      </div>
     </div>
   );
 };
