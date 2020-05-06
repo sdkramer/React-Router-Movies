@@ -9,6 +9,7 @@ const MovieList = (props) => {
       axios
         .get("http://localhost:5000/api/movies")
         .then((response) => {
+          // console.log(response.data[1].title)
           setMovies(response.data);
         })
         .catch((error) => {
@@ -17,13 +18,13 @@ const MovieList = (props) => {
     };
 
     getMovies();
+   
   }, []);
 
   return (
     <div className="movie-list">
       {movies.map((movie) => (
         <>
-
           <Link to={`/movies/${movie.id}`}>
           <MovieDetails key={movie.id} movie={movie} />
           </Link>
