@@ -25,14 +25,23 @@ const MovieList = (props) => {
     <div className="movie-list">
       {movies.map((movie) => (
         <>
-          <Link to={`/movies/${movie.id}`}>
-          <MovieDetails key={movie.id} movie={movie} />
+          <Link to={`/movies/${movie.id}`} style={{ textDecoration: 'none', color: '#ececec',  }}>
+          <MovieTitle key={movie.id} movie={movie} />
           </Link>
         </>
       ))}
     </div>
   );
 };
+
+function MovieTitle({movie}){
+  const {title} = movie;
+  return(
+    <div className='movie-title'>
+      <h2>{title}</h2>
+    </div>
+  )
+}
 
 function MovieDetails({ movie }) {
   const { title, director, metascore, stars } = movie;
